@@ -1,0 +1,371 @@
+@font-face {
+      font-family: 'Circular Std';
+      src: url('/fonts/CircularStd-Book.woff2') format('woff2'),
+           url('/fonts/CircularStd-Book.woff') format('woff'),
+           url('/fonts/CircularStd-Book.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Circular Std';
+      src: url('/fonts/CircularStd-Bold.woff2') format('woff2'),
+           url('/fonts/CircularStd-Bold.woff') format('woff'),
+           url('/fonts/CircularStd-Bold.ttf') format('truetype');
+      font-weight: bold;
+      font-style: normal;
+    }
+
+    body {
+      font-family: 'Circular Std', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #1a1a2e;
+      color: #e0e0e0;
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+
+    .header {
+      text-align: center;
+      padding: 25px 0;
+      font-size: 2.5rem;
+      color: #a9b1ff;
+      background-color: #282a3e;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+      font-weight: bold;
+    }
+
+    .sub-header {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #d0d0d0;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #282a3e;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    h1,
+    h2 {
+      color: #a9b1ff;
+      text-align: center;
+      margin-bottom: 12px;
+      font-size: 1.7rem;
+      font-weight: bold;
+    }
+
+    .calculator-card {
+      background: linear-gradient(145deg, #3a3d57, #32344a);
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+
+    .calculator-card h2 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      font-size: 1.4rem;
+    }
+
+    .calculator-section {
+      margin-bottom: 15px;
+    }
+
+    .input-group {
+      margin-bottom: 15px;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 500;
+      color: #d0d0d0;
+      font-size: 1rem;
+    }
+
+    .input-group input {
+      width: 93%;
+      padding: 8px 6px;
+      border: 2px solid #4a4d63;
+      border-radius: 8px;
+      background-color: #4a4d63;
+      color: #e0e0e0;
+      font-size: 0.95rem;
+      transition: border-color 0.3s ease;
+      font-family: 'Circular Std', sans-serif;
+    }
+
+    .input-group input:focus {
+      border-color: #a9b1ff;
+      outline: none;
+    }
+
+    button {
+      background-color: #ffcc66;
+      color: #1a1a2e;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      font-size: 0.95rem;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+      margin-top: 10px;
+      display: block;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+      font-family: 'Circular Std', sans-serif;
+    }
+
+    button:hover {
+      background-color: #e6b84d;
+      transform: scale(1.05);
+    }
+
+    .result {
+      margin-top: 15px;
+      font-weight: 500;
+      font-size: 1rem;
+      text-align: left;
+      color: #e0e0e0;
+      line-height: 1.5;
+    }
+
+    .result.affordable {
+      color: #66bb6a;
+    }
+
+    .result.unaffordable {
+      color: #ef5350;
+      font-size: 1rem;
+    }
+
+    .error-message {
+      color: #ff7878;
+      font-size: 0.8em;
+      margin-top: 5px;
+      text-align: center;
+    }
+
+    .disclaimer {
+      font-size: 0.7em;
+      color: #999;
+      margin-top: 18px;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #282a3e;
+      font-size: 0.75em;
+      color: #999;
+    }
+
+    .tooltip {
+      position: relative;
+      display: inline-block;
+    }
+
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 220px;
+      background-color: #666;
+      color: #fff;
+      text-align: center;
+      border-radius: 8px;
+      padding: 8px;
+      position: absolute;
+      z-index: 1;
+      top: 125%;
+      left: 50%;
+      margin-left: -110px;
+      opacity: 0;
+      transition: opacity 0.3s, transform 0.2s ease;
+      transform: translateY(10px);
+    }
+
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .tooltip i {
+      font-size: 0.7em;
+      margin-left: 5px;
+      color: #999;
+    }
+
+    .collapsible-card {
+      background-color: #32344a;
+      border-radius: 12px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+      padding: 10px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .collapsible-card:hover {
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .collapsible-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #d0d0d0;
+    }
+
+    .collapsible-card-content {
+      padding: 10px 0;
+      overflow: visible;
+      transition: all 0.3s ease-out;
+      max-height: 0;
+    }
+
+    .collapsible-card-content.collapsed {
+      max-height: 0;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .collapsible-card-content.expanded {
+      max-height: 5000px;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .collapsible-card-icon {
+      font-size: 1rem;
+      color: #a9b1ff;
+      transition: transform 0.3s ease;
+    }
+
+    .collapsible-card-icon.rotated {
+      transform: rotate(180deg);
+    }
+
+    .loading-spinner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .explanation-card {
+      background-color: #32344a;
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .explanation-card h3 {
+      color: #a9b1ff;
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    .explanation-content p {
+      margin-bottom: 6px;
+      line-height: 1.5;
+    }
+
+    .explanation-content ul {
+      margin-left: 20px;
+      margin-bottom: 10px;
+    }
+
+    .explanation-content ul li {
+      margin-bottom: 3px;
+    }
+
+    .faq-content {
+      padding: 10px;
+    }
+
+    .faq-content p {
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        width: 95%;
+        padding: 10px;
+      }
+
+      .header {
+        font-size: 2rem;
+      }
+
+      .sub-header {
+        font-size: 1.1rem;
+      }
+    }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #ffcc66;
+      color: #1a1a2e;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+    }
+
+    .back-to-top:hover {
+      background-color: #e6b84d;
+      transform: scale(1.1);
+    }
+
+    .back-to-top .tooltiptext {
+      visibility: hidden;
+      width: 120px;
+      background-color: #666;
+      color: #fff;
+      text-align: center;
+      border-radius: 8px;
+      padding: 5px;
+      position: absolute;
+      z-index: 1;
+      top: -45px;
+      left: 50%;
+      margin-left: -60px;
+      opacity: 0;
+      transition: opacity 0.3s, transform 0.2s ease;
+      transform: translateY(10px);
+    }
+
+    .back-to-top:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+    }
