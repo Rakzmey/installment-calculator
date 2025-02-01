@@ -106,21 +106,19 @@ import React, { useState, useRef, useEffect } from 'react';
         let response = `
           💵 The new monthly installment is ${formatCurrency(installment)}
           <br/>
-          💰 The most you can afford to pay per month is ${formatCurrency(affordableAmount)}
-          <br/>
           💳 Your Debt-to-Income (DTI) limit is: ${formatCurrency(dtiLimit)}
           <br/>
           💸 Your Disposable income Limit is ${formatCurrency(disposableLimit)}
           `;
 
         if (installment > dtiLimit) {
-          response += '<br/>👎 No! You CANNOT afford this new installment plan at all!!! Read the Understand Your Result to learn more.';
+          response += '<br/>👎 No! You CANNOT afford this new installment plan at all!!! Read the "Understand Your Result" section below to learn more.';
         } else if (installment <= dtiLimit && installment > disposableLimit * 3) {
-          response += '<br/>🤔 While you technically can afford this new installment plan, you might not wanna risk it! Read the Understand Your Result to learn more.';
+          response += '<br/>🤔 While you technically can afford this new installment plan, you might not wanna risk it! Read the "Understand Your Result" section below to learn more.';
         } else if (installment <= disposableLimit * 1.5 && installment > disposableLimit) {
-          response += '<br/>😬 This is cutting it very close!!! Read the Understand Your Result to learn more.';
+          response += '<br/>😬 This is cutting it very close!!! Read the "Understand Your Result" section below to learn more.';
         } else {
-          response += '<br/>👍 Looks good! Go ahead!';
+          response += '<br/>👍 Looks good! Go ahead! We suggest you read the "Understand Your Result" section below to learn more.';
         }
         setResult(response);
 
