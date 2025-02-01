@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+	import React, { useState, useRef, useEffect } from 'react';
     import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
     import { faChevronDown, faChevronUp, faInfoCircle, faArrowUp } from '@fortawesome/free-solid-svg-icons';
     import { ClipLoader } from 'react-spinners';
@@ -102,26 +102,60 @@ import React, { useState, useRef, useEffect } from 'react';
         );
         const disposableLimit = ((income - expenses - saving) * emergency);
         const dtiLimit = (0.30 * gross) - debt;
+		
+		let response = ""; // Initialize as empty string
 
-        let response = `
-          💵 The new monthly installment is ${formatCurrency(installment)}
-          <br/>
-          💳 Your Debt-to-Income (DTI) limit is: ${formatCurrency(dtiLimit)}
-          <br/>
-          💸 Your Disposable income Limit is ${formatCurrency(disposableLimit)}
-          `;
+		if (installment > dtiLimit) {
+		  response += `
+			<div style="text-align: center;">  
+			  <span style="font-size: 4em;">😫</span><br/><br/> 
+			  <span>No! You CANNOT afford this new installment plan at all!!!</span><br/><br/>
+			  <span>Read the "Understand Your Result" section below to learn more.</span>
+			</div>
+			<p>
+			  <br/>💰 The new monthly installment is ${formatCurrency(installment)}
+			  <br/>
+			  <br/>🧾 Your Debt-to-Income (DTI) limit is: ${formatCurrency(dtiLimit)}
+			  <br/>
+			  <br/>💸 Your Disposable Income Limit is ${formatCurrency(disposableLimit)}
+			</p>
+		  `;
+		} else if (installment <= dtiLimit && installment > disposableLimit) {
+		  response += `
+			<div style="text-align: center;">
+			  <span style="font-size: 4em;">🤔</span><br/>
+			  <span>While you technically can afford this new installment plan, you might not wanna risk it!</span><br/><br/>
+			  <span>Read the "Understand Your Result" section below to learn more.</span>
+			</div>
+			<p>
+			  <br/>💰 The new monthly installment is ${formatCurrency(installment)}
+			  <br/>
+			  <br/>🧾 Your Debt-to-Income (DTI) limit is: ${formatCurrency(dtiLimit)}
+			  <br/>
+			  <br/>💸 Your Disposable Income Limit is ${formatCurrency(disposableLimit)}
+			</p>
+		  `;
+		} else {
+		  response += `
+			<div style="text-align: center;">
+			  <span style="font-size: 4em;">🤩</span><br/>
+			  <span>Looks good! Go ahead!</span><br/><br/>
+			  <span>We suggest you read the "Understand Your Result" section below to learn more.</span>
+			</div>
+			<p>
+			  <br/>💰 The new monthly installment is ${formatCurrency(installment)}
+			  <br/>
+			  <br/>🧾 Your Debt-to-Income (DTI) limit is: ${formatCurrency(dtiLimit)}
+			  <br/>
+			  <br/>💸 Your Disposable Income Limit is ${formatCurrency(disposableLimit)}
+			</p>
+		  `;
+		}
 
-        if (installment > dtiLimit) {
-          response += '<br/>👎 No! You CANNOT afford this new installment plan at all!!! Read the "Understand Your Result" section below to learn more.';
-        } else if (installment <= dtiLimit && installment > disposableLimit * 3) {
-          response += '<br/>🤔 While you technically can afford this new installment plan, you might not wanna risk it! Read the "Understand Your Result" section below to learn more.';
-        } else if (installment <= disposableLimit * 1.5 && installment > disposableLimit) {
-          response += '<br/>😬 This is cutting it very close!!! Read the "Understand Your Result" section below to learn more.';
-        } else {
-          response += '<br/>👍 Looks good! Go ahead! We suggest you read the "Understand Your Result" section below to learn more.';
-        }
-        setResult(response);
+		setResult(response);
+		// ... (rest of your code to add other information)
 
+		setResult(response);
         // Pass the calculated values to the parent component
         onCalculate({
           installmentAmount: installment,
@@ -201,11 +235,11 @@ import React, { useState, useRef, useEffect } from 'react';
           </div>
           <div className="input-group">
             <label htmlFor="necessityExpenses">
-              Necessity Expenses:
+              Essential Monthly Expenses:
               <span className="tooltip">
                 <FontAwesomeIcon icon={faInfoCircle} />
                 <span className="tooltiptext">
-                  Your total monthly expenses, excluding any debt payments.
+                  Your total monthly expenses on food, rent...etc, excluding any debt payments.
                 </span>
               </span>
             </label>
