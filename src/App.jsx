@@ -1,4 +1,4 @@
-	import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
     import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
     import { faChevronDown, faChevronUp, faInfoCircle, faArrowUp } from '@fortawesome/free-solid-svg-icons';
     import { ClipLoader } from 'react-spinners';
