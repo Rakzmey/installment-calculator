@@ -1,371 +1,716 @@
 @font-face {
-      font-family: 'Circular Std';
-      src: url('/fonts/CircularStd-Book.woff2') format('woff2'),
-           url('/fonts/CircularStd-Book.woff') format('woff'),
-           url('/fonts/CircularStd-Book.ttf') format('truetype');
-      font-weight: normal;
-      font-style: normal;
-    }
+  font-family: 'Circular Std';
+  src: url('/fonts/CircularStd-Book.woff2') format('woff2'),
+       url('/fonts/CircularStd-Book.woff') format('woff'),
+       url('/fonts/CircularStd-Book.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
-    @font-face {
-      font-family: 'Circular Std';
-      src: url('/fonts/CircularStd-Bold.woff2') format('woff2'),
-           url('/fonts/CircularStd-Bold.woff') format('woff'),
-           url('/fonts/CircularStd-Bold.ttf') format('truetype');
-      font-weight: bold;
-      font-style: normal;
-    }
+@font-face {
+  font-family: 'Circular Std';
+  src: url('/fonts/CircularStd-Bold.woff2') format('woff2'),
+       url('/fonts/CircularStd-Bold.woff') format('woff'),
+       url('/fonts/CircularStd-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
 
-    body {
-      font-family: 'Circular Std', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #1a1a2e;
-      color: #e0e0e0;
-      line-height: 1.6;
-      font-size: 1rem;
-    }
+body {
+  font-family: 'Circular Std', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #1a1a2e;
+  color: #e0e0e0;
+  line-height: 1.6;
+  font-size: 1rem;
+}
 
-    .header {
-      text-align: center;
-      padding: 25px 0;
-      font-size: 2.5rem;
-      color: #a9b1ff;
-      background-color: #282a3e;
-      margin-bottom: 10px;
-      letter-spacing: 0.5px;
-      font-weight: bold;
-    }
+.header {
+  text-align: center;
+  padding: 25px 0;
+  font-size: 2.5rem;
+  color: #a9b1ff;
+  background-color: #282a3e;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+  font-weight: bold;
+}
 
-    .sub-header {
-      text-align: center;
-      font-size: 1.2rem;
-      color: #d0d0d0;
-      margin-bottom: 20px;
-      line-height: 1.5;
-    }
+/* New container styles for horizontal layout */
+.container {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  width: 95%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 24px;
+  min-height: calc(100vh - 100px);
+}
 
-    .container {
-      width: 90%;
-      max-width: 800px;
-      margin: 0 auto;
-      background-color: #282a3e;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    }
+/* Left sidebar styles */
+.sidebar {
+  grid-column: 1 / -1;
+  background: #32344a;
+  border-radius: 12px;
+  padding: 16px;
+  height: fit-content;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 16px; /* Add spacing between cards */
+}
 
-    h1,
-    h2 {
-      color: #a9b1ff;
-      text-align: center;
-      margin-bottom: 12px;
-      font-size: 1.7rem;
-      font-weight: bold;
-    }
+.calculator-item {
+  background: linear-gradient(145deg, #3a3d57, #32344a);
+  padding: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  flex: 1;
+  text-align: center;
+  white-space: nowrap; /* Ensure text stays on one line */
+  overflow: hidden; /* Hide overflow text */
+  text-overflow: ellipsis; /* Add ellipsis for overflow text */
+}
 
-    .calculator-card {
-      background: linear-gradient(145deg, #3a3d57, #32344a);
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-      padding: 15px;
-      margin-bottom: 15px;
-    }
+.calculator-item:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(145deg, #434666, #3a3d57);
+  border-color: #4a4d63;
+}
 
-    .calculator-card h2 {
-      margin-top: 0;
-      margin-bottom: 15px;
-      font-size: 1.4rem;
-    }
+.calculator-item.active {
+  background: linear-gradient(145deg, #434666, #3a3d57);
+  border: 1px solid #a9b1ff;
+}
 
-    .calculator-section {
-      margin-bottom: 15px;
-    }
+.calculator-icon {
+  margin-right: 8px; /* Adjust spacing between icon and text */
+  font-size: 1.2em;
+}
 
-    .input-group {
-      margin-bottom: 15px;
-    }
+.calculator-name {
+  font-weight: 500;
+  display: inline-block; /* Ensure text stays inline with icon */
+  vertical-align: middle; /* Align text vertically with icon */
+}
 
-    .input-group label {
-      display: block;
-      margin-bottom: 6px;
-      font-weight: 500;
-      color: #d0d0d0;
-      font-size: 1rem;
-    }
+/* Main content area styles */
+.main-content {
+  background: #282a3e;
+  border-radius: 12px;
+  padding: 24px;
+  grid-column: 1 / 2;
+}
 
-    .input-group input {
-      width: 93%;
-      padding: 8px 6px;
-      border: 2px solid #4a4d63;
-      border-radius: 8px;
-      background-color: #4a4d63;
-      color: #e0e0e0;
-      font-size: 0.95rem;
-      transition: border-color 0.3s ease;
-      font-family: 'Circular Std', sans-serif;
-    }
+.calculator-card {
+  background: linear-gradient(145deg, #3a3d57, #32344a);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
 
-    .input-group input:focus {
-      border-color: #a9b1ff;
-      outline: none;
-    }
+/* Right column result panel styles */
+.result-panel {
+  background: #32344a;
+  border-radius: 12px;
+  padding: 20px;
+  grid-column: 2 / 3;
+  height: fit-content;
+}
 
-    button {
-      background-color: #ffcc66;
-      color: #1a1a2e;
-      padding: 8px 16px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-      font-size: 0.95rem;
-      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
-      margin-top: 10px;
-      display: block;
-      width: fit-content;
-      margin-left: auto;
-      margin-right: auto;
-      font-family: 'Circular Std', sans-serif;
-    }
+.result-card {
+  background: linear-gradient(145deg, #3a3d57, #32344a);
+  border-radius: 8px;
+  padding: 16px;
+}
 
-    button:hover {
-      background-color: #e6b84d;
-      transform: scale(1.05);
-    }
+.result-card {
+  background: #32344a;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-    .result {
-      margin-top: 15px;
-      font-weight: 500;
-      font-size: 1rem;
-      text-align: left;
-      color: #e0e0e0;
-      line-height: 1.5;
-    }
+.result {
+  color: #fff;
+}
 
-    .result.affordable {
-      color: #66bb6a;
-    }
+.result p {
+  margin: 10px 0;
+}
 
-    .result.unaffordable {
-      color: #ef5350;
-      font-size: 1rem;
-    }
+.result strong {
+  color: #ffcc66;
+}
 
-    .error-message {
-      color: #ff7878;
-      font-size: 0.8em;
-      margin-top: 5px;
-      text-align: center;
-    }
+.result-card h3 {
+  color: #a9b1ff;
+  margin-bottom: 16px;
+  font-size: 1.2rem;
+}
 
-    .disclaimer {
-      font-size: 0.7em;
-      color: #999;
-      margin-top: 18px;
-      text-align: center;
-    }
+.result-content {
+  color: #e0e0e0;
+}
 
-    footer {
-      text-align: center;
-      margin-top: 20px;
-      padding: 10px;
-      background-color: #282a3e;
-      font-size: 0.75em;
-      color: #999;
-    }
+h1,
+h2 {
+  color: #a9b1ff;
+  text-align: center;
+  margin-bottom: 12px;
+  font-size: 1.7rem;
+  font-weight: bold;
+}
 
-    .tooltip {
-      position: relative;
-      display: inline-block;
-    }
+.calculator-card {
+  background: linear-gradient(145deg, #3a3d57, #32344a);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  margin-bottom: 15px;
+}
 
-    .tooltip .tooltiptext {
-      visibility: hidden;
-      width: 220px;
-      background-color: #666;
-      color: #fff;
-      text-align: center;
-      border-radius: 8px;
-      padding: 8px;
-      position: absolute;
-      z-index: 1;
-      top: 125%;
-      left: 50%;
-      margin-left: -110px;
-      opacity: 0;
-      transition: opacity 0.3s, transform 0.2s ease;
-      transform: translateY(10px);
-    }
+.calculator-card h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+}
 
-    .tooltip:hover .tooltiptext {
-      visibility: visible;
-      opacity: 1;
-      transform: translateY(0);
-    }
+.calculator-section {
+  margin-bottom: 15px;
+}
 
-    .tooltip i {
-      font-size: 0.7em;
-      margin-left: 5px;
-      color: #999;
-    }
+.input-group {
+  margin-bottom: 15px;
+}
 
-    .collapsible-card {
-      background-color: #32344a;
-      border-radius: 12px;
-      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-      padding: 10px;
-      margin-bottom: 10px;
-      cursor: pointer;
-      transition: box-shadow 0.3s ease;
-    }
+.input-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #d0d0d0;
+  font-size: 1rem;
+}
 
-    .collapsible-card:hover {
-      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-    }
+.input-group input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 2px solid #4a4d63;
+  border-radius: 8px;
+  background-color: #4a4d63;
+  color: #e0e0e0;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  font-family: 'Circular Std', sans-serif;
+  box-sizing: border-box;
+}
 
-    .collapsible-card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 1rem;
-      font-weight: 500;
-      color: #d0d0d0;
-    }
+.input-group input:focus {
+  border-color: #a9b1ff;
+  outline: none;
+  background-color: #434666;
+}
 
-    .collapsible-card-content {
-      padding: 10px 0;
-      overflow: visible;
-      transition: all 0.3s ease-out;
-      max-height: 0;
-    }
+button {
+  background-color: #ffcc66;
+  color: #1a1a2e;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-size: 0.95rem;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+  margin-top: 10px;
+  display: block;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Circular Std', sans-serif;
+}
 
-    .collapsible-card-content.collapsed {
-      max-height: 0;
-      opacity: 0;
-      visibility: hidden;
-    }
+button:hover {
+  background-color: #e6b84d;
+  transform: scale(1.05);
+}
 
-    .collapsible-card-content.expanded {
-      max-height: 5000px;
-      opacity: 1;
-      visibility: visible;
-    }
+.result {
+  margin-top: 15px;
+  font-weight: 500;
+  font-size: 1rem;
+  text-align: left;
+  color: #e0e0e0;
+  line-height: 1.5;
+}
 
-    .collapsible-card-icon {
-      font-size: 1rem;
-      color: #a9b1ff;
-      transition: transform 0.3s ease;
-    }
+.result.affordable {
+  color: #66bb6a;
+}
 
-    .collapsible-card-icon.rotated {
-      transform: rotate(180deg);
-    }
+.result.unaffordable {
+  color: #ef5350;
+  font-size: 1rem;
+}
 
-    .loading-spinner {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 20px;
-    }
+.error-message {
+  color: #ff7878;
+  font-size: 0.8em;
+  margin-top: 5px;
+  text-align: center;
+}
 
-    .explanation-card {
-      background-color: #32344a;
-      border-radius: 12px;
-      padding: 15px;
-      margin-bottom: 15px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    }
+.disclaimer {
+  font-size: 0.7em;
+  color: #999;
+  margin-top: 18px;
+  text-align: center;
+}
 
-    .explanation-card h3 {
-      color: #a9b1ff;
-      margin-top: 0;
-      margin-bottom: 10px;
-      font-size: 1.2rem;
-    }
+footer {
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #282a3e;
+  font-size: 0.75em;
+  color: #999;
+}
 
-    .explanation-content p {
-      margin-bottom: 6px;
-      line-height: 1.5;
-    }
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
 
-    .explanation-content ul {
-      margin-left: 20px;
-      margin-bottom: 10px;
-    }
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 220px;
+  background-color: #666;
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  padding: 8px;
+  position: absolute;
+  z-index: 1;
+  top: 125%;
+  left: 50%;
+  margin-left: -110px;
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.2s ease;
+  transform: translateY(10px);
+}
 
-    .explanation-content ul li {
-      margin-bottom: 3px;
-    }
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
 
-    .faq-content {
-      padding: 10px;
-    }
+.tooltip i {
+  font-size: 0.7em;
+  margin-left: 5px;
+  color: #999;
+}
 
-    .faq-content p {
-      margin-bottom: 10px;
-      line-height: 1.5;
-    }
+.collapsible-card {
+  background-color: #32344a;
+  border-radius: 12px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
 
-    @media (max-width: 600px) {
-      .container {
-        width: 95%;
-        padding: 10px;
-      }
+.collapsible-card:hover {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
 
-      .header {
-        font-size: 2rem;
-      }
+.collapsible-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #d0d0d0;
+}
 
-      .sub-header {
-        font-size: 1.1rem;
-      }
-    }
+.collapsible-card-content {
+  padding: 10px 0;
+  overflow: visible;
+  transition: all 0.3s ease-out;
+  max-height: 0;
+}
 
-    .back-to-top {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background-color: #ffcc66;
-      color: #1a1a2e;
-      border: none;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-      z-index: 1000;
-    }
+.collapsible-card-content.collapsed {
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+}
 
-    .back-to-top:hover {
-      background-color: #e6b84d;
-      transform: scale(1.1);
-    }
+.collapsible-card-content.expanded {
+  max-height: 5000px;
+  opacity: 1;
+  visibility: visible;
+}
 
-    .back-to-top .tooltiptext {
-      visibility: hidden;
-      width: 120px;
-      background-color: #666;
-      color: #fff;
-      text-align: center;
-      border-radius: 8px;
-      padding: 5px;
-      position: absolute;
-      z-index: 1;
-      top: -45px;
-      left: 50%;
-      margin-left: -60px;
-      opacity: 0;
-      transition: opacity 0.3s, transform 0.2s ease;
-      transform: translateY(10px);
-    }
+.collapsible-card-icon {
+  font-size: 1rem;
+  color: #a9b1ff;
+  transition: transform 0.3s ease;
+}
 
-    .back-to-top:hover .tooltiptext {
-      visibility: visible;
-      opacity: 1;
-      transform: translateY(0);
-    }
+.collapsible-card-icon.rotated {
+  transform: rotate(180deg);
+}
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.explanation-card {
+  background-color: #32344a;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.explanation-card h3 {
+  color: #a9b1ff;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.explanation-content p {
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+.explanation-content ul {
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+.explanation-content ul li {
+  margin-bottom: 3px;
+}
+
+.faq-content {
+  background: #282a3e;
+  border-radius: 12px;
+  padding: 24px;
+  margin-top: 20px;
+}
+
+.faq-item {
+  margin-bottom: 20px;
+}
+
+.faq-item h3 {
+  color: #a9b1ff;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.faq-item p {
+  color: #d0d0d0;
+  line-height: 1.5;
+}
+
+.faq-content {
+  padding: 10px;
+}
+
+.faq-content p {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 95%;
+    padding: 10px;
+  }
+
+  .header {
+    font-size: 2rem;
+  }
+
+  .sub-header {
+    font-size: 1.1rem;
+  }
+}
+
+/* Update media queries for responsiveness */
+@media (max-width: 1200px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    padding: 16px;
+    width: 98%;
+  }
+
+  .main-content {
+    grid-column: 1 / -1;
+  }
+
+  .result-panel {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 992px) {
+  .sidebar {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .calculator-item {
+    flex: 1 1 calc(50% - 8px);
+    margin-bottom: 0;
+    min-width: 150px;
+  }
+
+  .result-panel {
+    position: static;
+  }
+}
+
+@media (max-width: 576px) {
+  .calculator-item {
+    flex: 1 1 100%;
+  }
+
+  .container {
+    padding: 12px;
+  }
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #ffcc66;
+  color: #1a1a2e;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+
+.back-to-top:hover {
+  background-color: #e6b84d;
+  transform: scale(1.1);
+}
+
+.back-to-top .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #666;
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  top: -45px;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.2s ease;
+  transform: translateY(10px);
+}
+
+.back-to-top:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Understanding Result Card Styles */
+.understand-result-card {
+  background: #32344a;
+  border-radius: 8px;
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+.understand-result-header {
+  padding: 15px 20px;
+  background: linear-gradient(145deg, #3a3d57, #32344a);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.understand-result-header h3 {
+  margin: 0;
+  color: #ffcc66;
+  font-size: 1.1rem;
+}
+
+.understand-result-header .card-icon {
+  color: #ffcc66;
+  transition: transform 0.3s ease;
+}
+
+.understand-result-header .card-icon.rotated {
+  transform: rotate(180deg);
+}
+
+.explanation-content {
+  padding: 20px;
+  background: #3a3d57;
+}
+
+.explanation-content p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.explanation-content strong {
+  color: #ffcc66;
+}
+
+.explanation-content ul {
+  margin: 15px 0;
+  padding-left: 20px;
+}
+
+.explanation-content li {
+  margin-bottom: 8px;
+  color: #d0d0d0;
+}
+
+.explanation-content em {
+  font-style: italic;
+  color: #ffcc66;
+}
+
+/* Add this to your existing CSS file */
+
+.faq-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.faq-search {
+  margin-bottom: 2rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.submit-question-form {
+  background: #f5f5f5;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-top: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.submit-status {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #e8f5e9;
+  border-radius: 4px;
+  color: #2e7d32;
+  text-align: center;
+}
+
+.faq-item {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.faq-item.hidden {
+  display: none;
+  opacity: 0;
+}
+
+/* Hide the sidebar and show the toggle button on mobile devices */
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+  .mobile-menu-toggle {
+    display: block;
+    cursor: pointer;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+  }
+}
+
+/* Show the sidebar when the mobile menu is active */
+.mobile-menu-active .sidebar {
+  display: block;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  z-index: 1000;
+}
+
+.mobile-menu-active .sidebar .calculator-item {
+  display: block;
+  padding: 10px;
+  border-bottom: 1px solid #444;
+}
+
+.mobile-menu-active .sidebar .calculator-item.active {
+  background-color: #444;
+}
+
+.mobile-menu-active .sidebar .calculator-item:hover {
+  background-color: #555;
+}
+
+/* Hide the toggle button when the mobile menu is active */
+.mobile-menu-active .mobile-menu-toggle {
+  display: none;
+}
