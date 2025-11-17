@@ -1,0 +1,46 @@
+{
+  "polyfillFiles": [
+    "static/chunks/polyfills-42372ed130431b0a.js"
+  ],
+  "devFiles": [],
+  "ampDevFiles": [],
+  "lowPriorityFiles": [
+    "static/FxWYlWeAtWMHYtM3b1Iqj/_buildManifest.js",
+    "static/FxWYlWeAtWMHYtM3b1Iqj/_ssgManifest.js"
+  ],
+  "rootMainFiles": [],
+  "rootMainFilesTree": {},
+  "pages": {
+    "/": [
+      "static/chunks/webpack-11ffcb93b385c082.js",
+      "static/chunks/framework-292291387d6b2e39.js",
+      "static/chunks/main-5476583c54cefe2b.js",
+      "static/chunks/1d2671aa-c456cea009a6d795.js",
+      "static/chunks/124-af5e6a9b1e2a142e.js",
+      "static/chunks/pages/index-d84ad0a5c8c5bfe6.js"
+    ],
+    "/[calculator]": [
+      "static/chunks/webpack-11ffcb93b385c082.js",
+      "static/chunks/framework-292291387d6b2e39.js",
+      "static/chunks/main-5476583c54cefe2b.js",
+      "static/chunks/1d2671aa-c456cea009a6d795.js",
+      "static/chunks/162-fa83b869c943ad60.js",
+      "static/chunks/124-af5e6a9b1e2a142e.js",
+      "static/chunks/pages/[calculator]-155d1032c3f09371.js"
+    ],
+    "/_app": [
+      "static/chunks/webpack-11ffcb93b385c082.js",
+      "static/chunks/framework-292291387d6b2e39.js",
+      "static/chunks/main-5476583c54cefe2b.js",
+      "static/css/cdc43d657ca8829e.css",
+      "static/chunks/pages/_app-f1457caf0370435f.js"
+    ],
+    "/_error": [
+      "static/chunks/webpack-11ffcb93b385c082.js",
+      "static/chunks/framework-292291387d6b2e39.js",
+      "static/chunks/main-5476583c54cefe2b.js",
+      "static/chunks/pages/_error-cf5db1610f7a1281.js"
+    ]
+  },
+  "ampFirstPages": []
+}

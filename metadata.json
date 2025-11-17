@@ -1,0 +1,5 @@
+{
+  "name": "Cambodian Financial Calculators",
+  "description": "A set of interactive financial calculators designed for Cambodia, including loan, mortgage, savings, fixed deposit, and currency conversion tools. All calculations are done client-side.",
+  "requestFramePermissions": []
+}

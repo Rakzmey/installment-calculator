@@ -1,0 +1,51 @@
+# English/Khmer Financial Calculator Tools - SEO optimized robots.txt
+# ឧបករណ៍គណនាហិរញ្ញវត្ថុជាភាសាអង់គ្លេស/ខ្មែរ - robots.txt បានធ្វើការកែលម្អសម្រាប់ SEO
+
+User-agent: *
+Allow: /
+Allow: /loan
+Allow: /mortgage
+Allow: /savings
+Allow: /fixed_deposit
+Allow: /currency
+Allow: /car_loan
+Allow: /savings_goal
+Allow: /budget_planner
+Allow: /expense_visualizer
+Allow: /income_visualizer
+Allow: /roi
+Allow: /stock_growth
+Allow: /inflation
+Allow: /profit_margin
+Allow: /break_even
+Allow: /debt_repayment
+Allow: /debt_consolidation
+Allow: /retirement
+Allow: /education_fund
+Allow: /salary_tax
+Allow: /capital_gain_tax
+Allow: /quick_tips
+Allow: /glossary
+Allow: /faq
+Allow: /net_worth
+
+# Block access to any future API endpoints or admin areas
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+# Allow crawling of static assets
+Allow: /*.js
+Allow: /*.css
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.gif
+Allow: /*.svg
+Allow: /*.ico
+
+# Sitemap
+Sitemap: https://opakor.com/sitemap.xml
+
+# Crawl-delay: Be nice to servers
+Crawl-delay: 1
