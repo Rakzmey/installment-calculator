@@ -1,4 +1,4 @@
-"use strict";(()=>{var a={};a.id=220,a.ids=[220],a.modules={361:a=>{a.exports=require("next/dist/compiled/next-server/pages.runtime.prod.js")},1379:(a,b,c)=>{c.r(b),c.d(b,{default:()=>h});var d=c(8732),e=c(2341),f=c.n(e);class g extends f(){render(){return(0,d.jsxs)(e.Html,{lang:"en",children:[(0,d.jsx)(e.Head,{children:(0,d.jsx)("style",{children:`
+"use strict";(()=>{var e={};e.id=660,e.ids=[660],e.modules={7645:(e,t,r)=>{r.r(t),r.d(t,{default:()=>o});var s=r(997),n=r(6859),a=r.n(n);class i extends a(){render(){return(0,s.jsxs)(n.Html,{lang:"en",children:[s.jsx(n.Head,{children:s.jsx("style",{children:`
             /* Critical styles to prevent flash of unstyled content */
             body {
               margin: 0;
@@ -16,7 +16,7 @@
             .dark {
               color-scheme: dark;
             }
-          `})}),(0,d.jsxs)("body",{children:[(0,d.jsx)("script",{dangerouslySetInnerHTML:{__html:`
+          `})}),(0,s.jsxs)("body",{children:[s.jsx("script",{dangerouslySetInnerHTML:{__html:`
               (function() {
                 const theme = localStorage.getItem('theme') || 'light';
                 document.documentElement.setAttribute('data-theme', theme);
@@ -26,4 +26,4 @@
                   document.documentElement.classList.remove('dark');
                 }
               })();
-            `}}),(0,d.jsx)(e.Main,{}),(0,d.jsx)(e.NextScript,{})]})]})}}let h=g},2015:a=>{a.exports=require("react")},3873:a=>{a.exports=require("path")},8732:a=>{a.exports=require("react/jsx-runtime")}};var b=require("../webpack-runtime.js");b.C(a);var c=b.X(0,[341],()=>b(b.s=1379));module.exports=c})();
+            `}}),s.jsx(n.Main,{}),s.jsx(n.NextScript,{})]})]})}}let o=i},2785:e=>{e.exports=require("next/dist/compiled/next-server/pages.runtime.prod.js")},6689:e=>{e.exports=require("react")},997:e=>{e.exports=require("react/jsx-runtime")},5315:e=>{e.exports=require("path")}};var t=require("../webpack-runtime.js");t.C(e);var r=e=>t(t.s=e),s=t.X(0,[859],()=>r(7645));module.exports=s})();

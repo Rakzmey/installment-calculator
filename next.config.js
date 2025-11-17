@@ -4,7 +4,8 @@ const nextConfig = {
   distDir: 'out',   // ← The output folder (not .next anymore)
   images: {
     unoptimized: true, // Cloudflare will handle images
-  },
+ },
+  trailingSlash: true, // Add trailing slashes to all routes
 };
 
 module.exports = nextConfig;
