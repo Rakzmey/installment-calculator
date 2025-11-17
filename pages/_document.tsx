@@ -25,6 +25,8 @@ class MyDocument extends Document {
               color-scheme: dark;
             }
           `}</style>
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1387523749542047"
+            crossorigin="anonymous"></script>
         </Head>
         <body>
           <script dangerouslySetInnerHTML={{
